@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpModule } from "@angular/http";
-//import {FormsModule} fron "@angula";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/user/login/login.component";
@@ -20,6 +20,7 @@ import { WidgetYoutubeComponent } from "./components/widget/widget-youtube/widge
 import { Routing } from "./app.routing";
 import { WidgetChooserComponent } from "./components/widget/widget-chooser/widget-chooser.component";
 import { WidgetListComponent } from "./components/widget/widget-list/widget-list.component";
+import { UserService } from "./services/user.service.client";
 
 @NgModule({
   declarations: [
@@ -40,8 +41,8 @@ import { WidgetListComponent } from "./components/widget/widget-list/widget-list
     WidgetChooserComponent,
     WidgetListComponent
   ],
-  imports: [BrowserModule, Routing, HttpModule],
-  providers: [],
+  imports: [BrowserModule, Routing, HttpModule, FormsModule],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

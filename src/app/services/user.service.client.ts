@@ -46,4 +46,31 @@ export class UserService {
       }
     }
   }
+  // Search for user ny username an password
+  findUserByCredentials(username, password) {
+    for (let i = 0; i < this.users.length; i++) {
+      const element = this.users[i];
+      if (element.username === username && element.password === password) {
+        return element;
+      }
+    }
+  }
+  //Update user by ID
+  updateUSer(userId, user) {
+    for (let i = 0; i < this.users.length; i++) {
+      const element = this.users[i];
+      if (element.username === userId) {
+        this.users[i] = user;
+      }
+    }
+  }
+  //Delete user by id
+  deleteUser(userId, user) {
+    for (let i = 0; i < this.users.length; i++) {
+      const element = this.users[i];
+      if (element.username === userId) {
+        delete this.users[i];
+      }
+    }
+  }
 }

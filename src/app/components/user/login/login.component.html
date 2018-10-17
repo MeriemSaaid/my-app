@@ -1,18 +1,24 @@
 <!--Form login-->
 <div class="container">
 
-    <form action="" class="form-style">
+    <form name="myForm" class="form-style" action="post">
         <h3 class="form-style-heading">Login</h3>
         <hr><br>
+        <div *ngIf="erreur_flag" class="alert alert-danger">Invalid username or password!</div>
         <div class="form-group">
-            <input type="text" id="username" class="form-control" placeholder="username">
+            <input type="text" id="username" class="form-control" placeholder="username" name="username" [(ngModel)]="username">
         </div>
         <div class="form-group">
-            <input type="password" id="password" class="form-control" placeholder="password">
+            <input type="password" id="password" class="form-control" placeholder="password" name="password"
+                [(ngModel)]="password">
         </div>
         <div>
-            <a routerLink="/user/:uid" class="btn btn-primary btn-block ">Login</a>
+
+            <button class="btn btn-primary btn-block" (click)="login(username,password)">Login</button>
             <a routerLink="/register" class="btn btn-success btn-block">Register</a>
         </div>
     </form>
 </div>
+<script>
+   // console.log({{ userExist }});
+</script>
